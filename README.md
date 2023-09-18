@@ -1,10 +1,8 @@
-Sketsa UI Literasia is using:
+## Sketsa UI Literasia
 
-MDB5
-Version: FREE 6.4.1
++ [PREVIEW @ Github Pages](https://digitaliterasia.github.io/sketsaui/)
 
-Documentation:
-https://mdbootstrap.com/docs/standard/
++ [REFERENCE @ AirTable](https://airtable.com/appQMl6tUpjMHwDmb/shrXK3Iq1voel6uO1/tbliVEUCjnuyNYL4y)
 
-Contact:
-office@mdbootstrap.com
+Powered by
+MDB5 - Version: FREE 6.4.1
