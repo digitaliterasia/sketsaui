@@ -19,9 +19,10 @@
     />
     <!-- MDB -->
     <link rel="stylesheet" href="css/mdb.min.css" />
+    <!-- Charts CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css">
     <!-- Additional CSS -->
     <style>
-      body, nav {max-width: 2560px; background-color: black; margin: 0 auto;}
       .card-body {padding: 16px;}
       .card-text {line-height: normal;}
     </style>
@@ -177,35 +178,151 @@
 <!-- Navbar -->
 
 <!-- Start Content -->
-<div class="container-fluid bg-white bg-gradient" style="padding-top: 80px; padding-bottom: 40px;">
-  <div class="card mb-3" style="max-width: 2056px;">
+<div class="container-fluid bg-secondary bg-gradient p-5 mb-1 mt-4">
+
+  <div class="card mb-3 p-4 bg-white" style="padding-top: 10px;">
     <div class="row g-0">
-      <div class="col-12 text-center py-2">
-        <img
-            src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
-            class="rounded-circle"
-            height="80"
-            alt="Foto Profil"
-            loading="lazy"
-          />
-      </div>
-      <div class="col-12">
-          <div class="card-body">
-            <div class="list-group list-group-light list-group-small">
-              <button type="button" class="list-group-item list-group-item-action px-3 border-0 text-black-50">
-                  <div class="row">
-                    <div class="col-2"><i class="fas fa-user-graduate"></i></div>
-                    <div class="col-10"><small> Nama Taruna</small></div>
-                  </div>  
-              </button>
-              
-              &nbsp;
-              <a href="/sketsaui/11profilebuilder.html" class="btn btn-rounded btn-md btn-primary"><i class="fas fa-edit"></i>&nbsp; Edit Profil</a>
+      <div class="col-12 p-1">
+        <div class="row">
+
+          <div class="col-12 mb-3"><h6 class="text-center text-black-50">Jumlah Pengguna</h6></div>
+          
+          <div class="col-6 text-end text-black-50"><small>Total Pengguna</small></div>
+          <div class="col-6"><h5><span class="badge badge-success">24.000.000 &uparrow;</span></h5></div>
+          <div class="col-12 mb-2"><hr></div>
+
+          <div class="col-4">
+            <div class="row"> 
+              <div class="col-6 text-end text-black-50"><small>Aktif Hari Ini</small></div>
+              <div class="col-6"><h5><span class="badge badge-success">2.400.000 &uparrow;</span></h5></div>  
+            </div>
+            <div class="row">   
+              <div class="col-6 text-end text-black-50"><small>Aktif Pekan Ini</small></div>
+              <div class="col-6"><h5><span class="badge badge-success">10.000.000 &uparrow;</span></h5></div>
+            </div>
+            <div class="row">   
+              <div class="col-6 text-end text-black-50"><small>Aktif Bulan Ini</small></div>
+              <div class="col-6"><h5><span class="badge badge-warning">12.000.000 &downarrow;</span></h5></div>
+            </div>
+            <div class="row">   
+              <div class="col-6 text-end text-black-50"><small>Aktif Triwulan Ini</small></div>
+              <div class="col-6"><h5><span class="badge badge-warning">20.000.000 &downarrow;</span></h5></div>
             </div>
           </div>
+
+          <div class="col-4">
+            <div class="row"> 
+              <div class="col-6 text-end text-black-50"><small>Baru Hari Ini</small></div>
+              <div class="col-6"><h5><span class="badge badge-warning">4.000 &downarrow;</span></h5></div>  
+            </div>
+            <div class="row">  
+              <div class="col-6 text-end text-black-50"><small>Baru Pekan Ini</small></div>
+              <div class="col-6"><h5><span class="badge badge-warning">40.000 &downarrow;</span></h5></div> 
+            </div>
+            <div class="row">   
+              <div class="col-6 text-end text-black-50"><small>Baru Bulan Ini</small></div>
+             <div class="col-6"><h5><span class="badge badge-success">200.000 &uparrow;</span></h5></div>
+            </div>
+            <div class="row">   
+              <div class="col-6 text-end text-black-50"><small>Baru Triwulan Ini</small></div>
+             <div class="col-6"><h5><span class="badge badge-success">600.000 &uparrow;</span></h5></div>
+            </div>
+          </div>
+
+          <div class="col-4">
+            <div class="row"> 
+              <div class="col-6 text-end text-black-50"><small>Tamu Hari Ini</small></div>
+              <div class="col-6"><h5><span class="badge badge-warning">40.000 &downarrow;</span></h5></div>  
+            </div>
+            <div class="row">  
+              <div class="col-6 text-end text-black-50"><small>Tamu Pekan Ini</small></div>
+              <div class="col-6"><h5><span class="badge badge-warning">400.000 &downarrow;</span></h5></div> 
+            </div>
+            <div class="row">   
+              <div class="col-6 text-end text-black-50"><small>Tamu Bulan Ini</small></div>
+             <div class="col-6"><h5><span class="badge badge-success">2.000.000 &uparrow;</span></h5></div>
+            </div>
+            <div class="row">   
+              <div class="col-6 text-end text-black-50"><small>Tamu Triwulan Ini</small></div>
+             <div class="col-6"><h5><span class="badge badge-success">6.000.000 &uparrow;</span></h5></div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   </div>
+
+  <div class="card mb-3 p-4">
+    <div class="row g-0">
+      <div class="col-12">
+        <h6 class="text-center text-black-50">Statistik Pengguna</h6>
+
+        <div class="row">
+
+          <div class="col-4 p-3">
+            <div class="row mb-3">
+              <small class="text-black-50 text-center"><b>Kelas Pengguna</b></small>
+            </div>
+            <div class="list-group list-group-light list-group-small">
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0 bg-info">
+                <div class="row">
+                  <div class="col-7 text-white"><small>Anak 7-12 tahun</small></div>
+                  <div class="col-5"><h5><span class="badge badge-secondary">4.000.000 = 16.7%</span></div>
+                </div>
+              </button>
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0">
+                <div class="row">
+                  <div class="col-7 text-black-50"><small>Remaja 13-18 tahun</small></div>
+                  <div class="col-5"><h5><span class="badge badge-secondary">6.000.000 = 25.0%</span></h5></div>
+                </div>
+              </button>
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0 bg-info">
+                <div class="row">
+                  <div class="col-7 text-white"><small>Pemuda 19-24 tahun</small></div>
+                  <div class="col-5"><h5><span class="badge badge-secondary">4.000.000 = 16.7%</span></h5></div>
+                </div>
+              </button>
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0">
+                <div class="row">
+                  <div class="col-7 text-black-50"><small>Dewasa 25+ Pekerja Formal </small></div>
+                  <div class="col-5"><h5><span class="badge badge-secondary">4.000.000 = 16.7%</span></h5></div>
+                </div>
+              </button>
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0 bg-info">
+                <div class="row">
+                  <div class="col-7 text-white"><small>Dewasa 25+ Pekerja Informal </small></div>
+                  <div class="col-5"><h5><span class="badge badge-secondary">6.000.000 = 25.0%</span></h5></div>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <div class="col-4 p-3">
+            <img
+              src="img/chart-kelas-pengguna.jpg"
+              style="max-height: 300px;"
+            />
+          </div>
+
+          <div class="col-4 p-3 px-5">
+            <div class="row mb-3">
+              <small class="text-black-50 text-center"><b>Wawasan</b></small>
+            </div>
+            <p>
+              <small class="text-black-50">Pengguna terbanyak pertama Literasia saat ini adalah <b>Remaja 13-18 tahun (6.000.000 atau 25.0%)</b> dan <b>Dewasa di atas 25 tahun Pekerja Informal (6.000.000 atau 25%)</b>. </small>
+            </p>
+            <p>
+              <small class="text-black-50">Pengguna terbanyak kedua Literasia saat ini adalah <b>Anak 7-12 tahun (4.000.000 atau 16.7%)</b> dan <b>Pemuda 19-24 tahun (4.000.000 atau 16.7%)</b> dan <b>Dewasa di atas 25 tahun Pekerja Formal (4.000.000 atau 16.7%)</b>. </small>
+            </p>
+          </div>
+          
+        </div>
+          
+      </div>
+    </div>
+  </div>
+
 </div>
 <!-- End Content -->
 
@@ -224,6 +341,7 @@
 
     <!-- MDB -->
     <script type="text/javascript" src="js/mdb.min.js"></script>
+
     <!-- Custom scripts -->
     <script type="text/javascript"></script>
   </body>
