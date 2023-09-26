@@ -19,9 +19,10 @@
     />
     <!-- MDB -->
     <link rel="stylesheet" href="css/mdb.min.css" />
+    <!-- Charts CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css">
     <!-- Additional CSS -->
     <style>
-      body, nav {max-width: 2560px; background-color: black; margin: 0 auto;}
       .card-body {padding: 16px;}
       .card-text {line-height: normal;}
     </style>
@@ -177,35 +178,361 @@
 <!-- Navbar -->
 
 <!-- Start Content -->
-<div class="container-fluid bg-white bg-gradient" style="padding-top: 80px; padding-bottom: 40px;">
-  <div class="card mb-3" style="max-width: 2056px;">
+<div class="container-fluid bg-secondary bg-gradient p-5 mb-1 mt-4">
+
+  <div id="jumlahLintasanIlmu" class="card mb-3 p-4 bg-white" style="padding-top: 10px;">
     <div class="row g-0">
-      <div class="col-12 text-center py-2">
-        <img
-            src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
-            class="rounded-circle"
-            height="80"
-            alt="Foto Profil"
-            loading="lazy"
-          />
-      </div>
-      <div class="col-12">
-          <div class="card-body">
-            <div class="list-group list-group-light list-group-small">
-              <button type="button" class="list-group-item list-group-item-action px-3 border-0 text-black-50">
-                  <div class="row">
-                    <div class="col-2"><i class="fas fa-user-graduate"></i></div>
-                    <div class="col-10"><small> Nama Taruna</small></div>
-                  </div>  
-              </button>
-              
-              &nbsp;
-              <a href="/sketsaui/11profilebuilder.html" class="btn btn-rounded btn-md btn-primary"><i class="fas fa-edit"></i>&nbsp; Edit Profil</a>
+      <div class="col-12 p-1">
+        <div class="row">
+
+          <h6 class="text-center text-black-50 mb-5"><i class="fas fa-file-clipboard"></i>&nbsp; Jumlah Lintasan Ilmu</h6>
+
+          <div class="col-4">
+            <div class="row"> 
+              <div class="col-6 text-end text-black-50"><small>Total Lintasan Ilmu</small></div>
+              <div class="col-6"><h5><span class="badge badge-primary">9</span></h5></div>  
+            </div>
+            <div class="row">   
+              <div class="col-6 text-end text-black-50"><small>Rilis Lintasan Ilmu Bulan Ini</small></div>
+              <div class="col-6"><h5><span class="badge badge-success">3 &uparrow;</span></h5></div>
+            </div>
+            <div class="row">   
+              <div class="col-6 text-end text-black-50"><small>Lintasan Ilmu Prarilis</small></div>
+              <div class="col-6"><h5><span class="badge badge-warning">18 &downarrow;</span></h5></div>
+            </div>
+            <div class="row">   
+              <div class="col-6 text-end text-black-50"><small>Lintasan Ilmu Terencana</small></div>
+              <div class="col-6"><h5><span class="badge badge-warning">36 &downarrow;</span></h5></div>
             </div>
           </div>
+
+          <div class="col-4">
+            <div class="row"> 
+              <div class="col-6 text-end text-black-50"><small>Total Review</small></div>
+              <div class="col-6"><h5><span class="badge badge-primary">900</span></h5></div>  
+            </div>
+            <div class="row">  
+              <div class="col-6 text-end text-black-50"><small>Review Baru Bulan Ini</small></div>
+              <div class="col-6"><h5><span class="badge badge-warning">90 &downarrow;</span></h5></div> 
+            </div>
+            <div class="row">   
+              <div class="col-6 text-end text-black-50"><small>Moderasi Review Bulan Ini</small></div>
+             <div class="col-6"><h5><span class="badge badge-success">180 &uparrow;</span></h5></div>
+            </div>
+            <div class="row">   
+              <div class="col-6 text-end text-black-50"><small>Submisi Review Bulan Ini</small></div>
+             <div class="col-6"><h5><span class="badge badge-success">450 &uparrow;</span></h5></div>
+            </div>
+          </div>
+
+          <div class="col-4">
+            <div class="row"> 
+              <div class="col-6 text-end text-black-50"><small>Total Sertifikat</small></div>
+              <div class="col-6"><h5><span class="badge badge-primary">360.000</span></h5></div>  
+            </div>
+            <div class="row">  
+              <div class="col-6 text-end text-black-50"><small>Rilis Sertifikat Bulan Ini</small></div>
+              <div class="col-6"><h5><span class="badge badge-warning">81.000 &downarrow;</span></h5></div> 
+            </div>
+            <div class="row">   
+              <div class="col-6 text-end text-black-50"><small>Total Peserta</small></div>
+             <div class="col-6"><h5><span class="badge badge-success">9.000.000 &uparrow;</span></h5></div>
+            </div>
+            <div class="row">   
+              <div class="col-6 text-end text-black-50"><small>Total Ujian</small></div>
+             <div class="col-6"><h5><span class="badge badge-success">180.000 &uparrow;</span></h5></div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   </div>
+
+  <div id="statLintasanIlmu" class="card mb-3 p-4">
+    <div class="row g-0">
+      <div class="col-12">
+        <h6 class="text-center text-black-50 pt-3 mb-5"><i class="fas fa-book-open-reader"></i>&nbsp; Statistik Lintasan Ilmu</h6>
+
+        <div class="row mb-5">
+
+          <div id="lintasanIlmuTerpopuler" class="col-4 p-3">
+            <div class="row mb-3">
+              <small class="text-black-50 text-center"><b>Lintasan Ilmu Terpopuler</b> | Jumlah Peserta Didik</small>
+            </div>
+            <div class="list-group list-group-light list-group-small">
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0 bg-primary">
+                <div class="row">
+                  <div class="col-7 text-white"><small>Judul Lintasan Ilmu Terpopuler 1</small></div>
+                  <div class="col-5 text-end"><h5><span class="badge badge-secondary">2.000.000</span></h5></div>
+                </div>
+              </button>
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0">
+                <div class="row">
+                  <div class="col-7 text-black-50"><small>Judul Lintasan Ilmu Terpopuler 2</small></div>
+                  <div class="col-5 text-end"><h5><span class="badge badge-secondary">1.800.000</span></h5></div>
+                </div>
+              </button>
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0 bg-primary">
+                <div class="row">
+                  <div class="col-7 text-white"><small>Judul Lintasan Ilmu Terpopuler 3</small></div>
+                  <div class="col-5 text-end"><h5><span class="badge badge-secondary">840.000</span></h5></div>
+                </div>
+              </button>
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0">
+                <div class="row">
+                  <div class="col-7 text-black-50"><small>Judul Lintasan Ilmu Terpopuler 4</small></div>
+                  <div class="col-5 text-end"><h5><span class="badge badge-secondary">450.000</span></h5></div>
+                </div>
+              </button>
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0 bg-primary">
+                <div class="row">
+                  <div class="col-7 text-white"><small>Judul Lintasan Ilmu Terpopuler 5</small></div>
+                  <div class="col-5 text-end"><h5><span class="badge badge-secondary">90.000</span></h5></div>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <div id="lintasanIlmuTerbaik" class="col-4 p-3">
+            <div class="row mb-3">
+              <small class="text-black-50 text-center"><b>Lintasan Ilmu Terbaik</b> | Jumlah Review & Rating</small>
+            </div>
+            <div class="list-group list-group-light list-group-small">
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0 bg-info">
+                <div class="row">
+                  <div class="col-7 text-white"><small>Judul Lintasan Ilmu Terbaik 1</small></div>
+                  <div class="col-5 text-end"><h5><span class="badge badge-secondary">900.000 = 4.8</span></div>
+                </div>
+              </button>
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0">
+                <div class="row">
+                  <div class="col-7 text-black-50"><small>Judul Lintasan Ilmu Terbaik 2</small></div>
+                  <div class="col-5 text-end"><h5><span class="badge badge-secondary">270.000 = 4.8</span></h5></div>
+                </div>
+              </button>
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0 bg-info">
+                <div class="row">
+                  <div class="col-7 text-white"><small>Judul Lintasan Ilmu Terbaik 3</small></div>
+                  <div class="col-5 text-end"><h5><span class="badge badge-secondary">360.000 = 4.5</span></h5></div>
+                </div>
+              </button>
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0">
+                <div class="row">
+                  <div class="col-7 text-black-50"><small>Judul Lintasan Ilmu Terbaik 4</small></div>
+                  <div class="col-5 text-end"><h5><span class="badge badge-secondary">90.000 = 4.6</span></h5></div>
+                </div>
+              </button>
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0 bg-info">
+                <div class="row">
+                  <div class="col-7 text-white"><small>Judul Lintasan Ilmu Terbaik 5</small></div>
+                  <div class="col-5 text-end"><h5><span class="badge badge-secondary">27.000 = 4.8</span></h5></div>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <div id="topiklintasanIlmuTerpopuler" class="col-4 p-3">
+            <div class="row mb-3">
+              <small class="text-black-50 text-center"><b>Topik Lintasan Ilmu Terpopuler</b> | Jumlah Peserta Didik</small>
+            </div>
+            <div class="list-group list-group-light list-group-small">
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0 bg-dark">
+                <div class="row">
+                  <div class="col-7 text-white"><small>Topik Lintasan Ilmu Terpopuler 1</small></div>
+                  <div class="col-5 text-end"><h5><span class="badge badge-secondary">2.000.000</span></h5></div>
+                </div>
+              </button>
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0">
+                <div class="row">
+                  <div class="col-7 text-black-50"><small>Topik Lintasan Ilmu Terpopuler 2</small></div>
+                  <div class="col-5 text-end"><h5><span class="badge badge-secondary">1.800.000</span></h5></div>
+                </div>
+              </button>
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0 bg-dark">
+                <div class="row">
+                  <div class="col-7 text-white"><small>Topik Lintasan Ilmu Terpopuler 3</small></div>
+                  <div class="col-5 text-end"><h5><span class="badge badge-secondary">840.000</span></h5></div>
+                </div>
+              </button>
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0">
+                <div class="row">
+                  <div class="col-7 text-black-50"><small>Topik Lintasan Ilmu Terpopuler 4</small></div>
+                  <div class="col-5 text-end"><h5><span class="badge badge-secondary">450.000</span></h5></div>
+                </div>
+              </button>
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0 bg-dark">
+                <div class="row">
+                  <div class="col-7 text-white"><small>Topik Lintasan Ilmu Terpopuler 5</small></div>
+                  <div class="col-5 text-end"><h5><span class="badge badge-secondary">90.000</span></h5></div>
+                </div>
+              </button>
+            </div>
+          </div>
+          
+        </div>
+
+        <div class="row mb-2">
+
+          <div id="lintasanIlmuTerbaru" class="col-4 p-3">
+            <div class="row mb-3">
+              <small class="text-black-50 text-center"><b>Lintasan Ilmu Terbaru</b> | Jumlah Peserta Didik</small>
+            </div>
+            <div class="list-group list-group-light list-group-small">
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0 bg-success">
+                <div class="row">
+                  <div class="col-7 text-white"><small>Judul Lintasan Ilmu Terbaru 1</small></div>
+                  <div class="col-5 text-end"><h5><span class="badge badge-secondary">2.000.000</span></h5></div>
+                </div>
+              </button>
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0">
+                <div class="row">
+                  <div class="col-7 text-black-50"><small>Judul Lintasan Ilmu Terbaru 2</small></div>
+                  <div class="col-5 text-end"><h5><span class="badge badge-secondary">1.800.000</span></h5></div>
+                </div>
+              </button>
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0 bg-success">
+                <div class="row">
+                  <div class="col-7 text-white"><small>Judul Lintasan Ilmu Terbaru 3</small></div>
+                  <div class="col-5 text-end"><h5><span class="badge badge-secondary">840.000</span></h5></div>
+                </div>
+              </button>
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0">
+                <div class="row">
+                  <div class="col-7 text-black-50"><small>Judul Lintasan Ilmu Terbaru 4</small></div>
+                  <div class="col-5 text-end"><h5><span class="badge badge-secondary">450.000</span></h5></div>
+                </div>
+              </button>
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0 bg-success">
+                <div class="row">
+                  <div class="col-7 text-white"><small>Judul Lintasan Ilmu Terbaru 5</small></div>
+                  <div class="col-5 text-end"><h5><span class="badge badge-secondary">90.000</span></h5></div>
+                </div>
+              </button>
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0 ">
+                <div class="row text-center">
+                  <small class="text-black-50">Tampilkan semua &darr;</small>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <div id="lintasanIlmuPrarilis" class="col-4 p-3">
+            <div class="row mb-3">
+              <small class="text-black-50 text-center"><b>Lintasan Ilmu Prarilis</b> | Tim Tutor</small>
+            </div>
+            <div class="list-group list-group-light list-group-small">
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0 bg-warning">
+                <div class="row">
+                  <div class="col-7 text-white"><small>Judul Lintasan Ilmu Prarilis 1</small></div>
+                  <div class="col-5 text-white"><small>Tutor 1a | Tutor 1b</small></div>
+                </div>
+              </button>
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0 ">
+                <div class="row">
+                  <div class="col-7"><small>Judul Lintasan Ilmu Prarilis 2</small></div>
+                  <div class="col-5"><small>Tutor 2a | Tutor 2b</small></div>
+                </div>
+              </button>
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0 bg-warning">
+                <div class="row">
+                  <div class="col-7 text-white"><small>Judul Lintasan Ilmu Prarilis 3</small></div>
+                  <div class="col-5 text-white"><small>Tutor 3a | Tutor 3b</small></div>
+                </div>
+              </button>
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0 ">
+                <div class="row">
+                  <div class="col-7"><small>Judul Lintasan Ilmu Prarilis 4</small></div>
+                  <div class="col-5"><small>Tutor 4a | Tutor 4b</small></div>
+                </div>
+              </button>
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0 bg-warning">
+                <div class="row">
+                  <div class="col-7 text-white"><small>Judul Lintasan Ilmu Prarilis 5</small></div>
+                  <div class="col-5 text-white"><small>Tutor 5a | Tutor 5b</small></div>
+                </div>
+              </button>
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0 ">
+                <div class="row">
+                  <div class="col-7"><small>Judul Lintasan Ilmu Prarilis 6</small></div>
+                  <div class="col-5"><small>Tutor 6a | Tutor 6b</small></div>
+                </div>
+              </button>
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0 bg-warning">
+                <div class="row">
+                  <div class="col-7 text-white"><small>Judul Lintasan Ilmu Prarilis 7</small></div>
+                  <div class="col-5 text-white"><small>Tutor 7a | Tutor 7b</small></div>
+                </div>
+              </button>
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0 ">
+                <div class="row text-center">
+                  <small class="text-black-50">Tampilkan semua &darr;</small>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <div id="lintasanIlmuTerencana" class="col-4 p-3">
+            <div class="row mb-3">
+              <small class="text-black-50 text-center"><b>Lintasan Ilmu Terencana</b> | Tutor Penanggungjawab</small>
+            </div>
+            <div class="list-group list-group-light list-group-small">
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0 bg-secondary">
+                <div class="row">
+                  <div class="col-7 text-white"><small>Judul Lintasan Ilmu Terencana 1</small></div>
+                  <div class="col-5 text-white"><small>Tutor 1</small></div>
+                </div>
+              </button>
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0 ">
+                <div class="row">
+                  <div class="col-7"><small>Judul Lintasan Ilmu Terencana 2</small></div>
+                  <div class="col-5"><small>Tutor 2</small></div>
+                </div>
+              </button>
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0 bg-secondary">
+                <div class="row">
+                  <div class="col-7 text-white"><small>Judul Lintasan Ilmu Terencana 3</small></div>
+                  <div class="col-5 text-white"><small>Tutor 3</small></div>
+                </div>
+              </button>
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0 ">
+                <div class="row">
+                  <div class="col-7"><small>Judul Lintasan Ilmu Terencana 4</small></div>
+                  <div class="col-5"><small>Tutor 4</small></div>
+                </div>
+              </button>
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0 bg-secondary">
+                <div class="row">
+                  <div class="col-7 text-white"><small>Judul Lintasan Ilmu Terencana 5</small></div>
+                  <div class="col-5 text-white"><small>Tutor 5</small></div>
+                </div>
+              </button>
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0 ">
+                <div class="row">
+                  <div class="col-7"><small>Judul Lintasan Ilmu Terencana 6</small></div>
+                  <div class="col-5"><small>Tutor 6</small></div>
+                </div>
+              </button>
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0 bg-secondary">
+                <div class="row">
+                  <div class="col-7 text-white"><small>Judul Lintasan Ilmu Terencana 7</small></div>
+                  <div class="col-5 text-white"><small>Tutor 7</small></div>
+                </div>
+              </button>
+              <button type="button" class="list-group-item list-group-item-action px-3 border-0 ">
+                <div class="row text-center">
+                  <small class="text-black-50">Tampilkan semua &darr;</small>
+                </div>
+              </button>
+            </div>
+          </div>
+          
+        </div>
+          
+      </div>
+    </div>
+  </div>
+
 </div>
 <!-- End Content -->
 
@@ -224,6 +551,7 @@
 
     <!-- MDB -->
     <script type="text/javascript" src="js/mdb.min.js"></script>
+
     <!-- Custom scripts -->
     <script type="text/javascript"></script>
   </body>
